@@ -1,0 +1,17 @@
+{
+  "name": "1.urlreducer",
+  "version": "1.0.0",
+  "description": "Shorten URL",
+  "license": "ISC",
+  "author": "Nikhil Dhiman",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^5.0.1",
+    "zod": "^3.24.2"
+  }
+}
