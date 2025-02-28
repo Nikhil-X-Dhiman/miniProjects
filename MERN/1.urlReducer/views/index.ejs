@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <head> </head>
+    <section class="app-body">
+      <div class="app-heading">
+        <h2>URL Shortener</h2>
+      </div>
+      <div class="form-container">
+        <form action="/submit" method="post">
+          <label for="realURL">Enter URL: </label><br />
+          <input type="text" name="realURL" id="realURL" required /><br />
+          <label for="optShortURL">Enter Custom URL: (Optional)</label><br />
+          <input type="text" name="optShortURL" id="optShortURL" /><br />
+          <button type="submit">Shorten</button>
+        </form>
+      </div>
+      <div class="display-url">
+        <h3>Shortened URL's</h3>
+        <ul class="url-links">
+          <% Object.entries(data).forEach(([shortURL, realURL]) => { %>
+          <li class="url-link">
+            <a href="<%=  %>/<%= shortURL %>" target="_blank"
+              ><%= host %>/<%= shortURL %></a
+            ><br />
+            <%= realURL.slice(0, 45) %>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </section>
+  </body>
+</html>

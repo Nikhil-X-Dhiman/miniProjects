@@ -1,12 +1,28 @@
 import express from 'express'
-import { PORT } from './modules/validation.module.js';
+import { router } from './routes/app.routes.js';
+import { PORT } from './models/portValidation.models.js';
+import { serverStarter } from './controllers/serverStarter.controller.js';
 
 const app = express();
 
-app.get('/', (req, res)=>{
-  res.send('OK');
+serverStarter()
+
+// middleware starts
+app.use(express.static('public'))
+
+app.use(express.urlencoded({extended: true}))
+
+app.set('view engine', 'ejs');
+// middleware ends
+
+// router setup
+app.use(router);
+// if no defines routes found
+app.use((req, res)=>{
+  res.send("Not Allowed")
 })
 
+// server listening on port
 app.listen(PORT, ()=>{
   console.log(`Server is running at port: ${PORT}`);
 })
