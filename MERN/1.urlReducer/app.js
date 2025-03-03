@@ -9,9 +9,9 @@ serverStarter()
 
 // middleware starts
 app.use(express.static('public'))
-
+// to read correct req body data
 app.use(express.urlencoded({extended: true}))
-
+// for server side rendering
 app.set('view engine', 'ejs');
 // middleware ends
 
